@@ -19,7 +19,9 @@ router.route('/user')
     res.json(user)
   })
   .post((req, res) => {
-    res.send('Post User')
+    user.push(req.body)
+    console.log('Post User')
+    res.send(user)
   })
 
 router.put('/user/:id', (req, res) => {
