@@ -1,3 +1,4 @@
+const { response } = require('express')
 const express = require('express')
 const router = express.Router()
 
@@ -25,7 +26,7 @@ router.route('/user')
   })
 
 router.put('/user/:id', (req, res) => {
-  const id =req.params.id
+  const id = req.params.id
   user.filter(user => {
     if(user.id == id) {
       user.id = id
@@ -39,8 +40,9 @@ router.put('/user/:id', (req, res) => {
 })
 
 router.delete('/user/:id', (req, res) => {
-  const id =req.params
-  res.send(id)
+  let id = req.params.id
+  user = user.filter(user => user.id != id)
+  res.send(user)
 })
 
 module.exports = router
