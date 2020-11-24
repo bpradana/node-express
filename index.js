@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-  res.send('About')
+  res.redirect('/user')
 })
 
 app.get('/user', (req, res) => {
