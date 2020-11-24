@@ -1,4 +1,5 @@
 const express = require('express')
+const userRouter = require('./user')
 const app = express()
 const port = 3000
 
@@ -14,23 +15,7 @@ app.get('/about', (req, res) => {
   res.redirect('/user')
 })
 
-app.route('/user')
-  .get((req, res) => {
-    res.send('Get User')
-  })
-  .post((req, res) => {
-    res.send('Post User')
-  })
-
-app.put('/user/:id', (req, res) => {
-  const id =req.params
-  res.send(id)
-})
-
-app.delete('/user/:id', (req, res) => {
-  const id =req.params
-  res.send(id)
-})
+app.use(userRouter)
 
 app.listen(port, () => {
   console.log(`started on port ${port}`)
