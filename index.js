@@ -18,12 +18,14 @@ app.post('/user', (req, res) => {
   res.send('Post User')
 })
 
-app.put('/user', (req, res) => {
-  res.send('Put User')
+app.put('/user/:id', (req, res) => {
+  const id =req.params
+  res.send(id)
 })
 
-app.delete('/user', (req, res) => {
-  res.send('Delete User')
+app.delete('/user/:id', (req, res) => {
+  const id =req.params
+  res.send(id)
 })
 
 app.listen(port, () => {
