@@ -14,13 +14,13 @@ app.get('/about', (req, res) => {
   res.redirect('/user')
 })
 
-app.get('/user', (req, res) => {
-  res.send('Get User')
-})
-
-app.post('/user', (req, res) => {
-  res.send('Post User')
-})
+app.route('/user')
+  .get((req, res) => {
+    res.send('Get User')
+  })
+  .post((req, res) => {
+    res.send('Post User')
+  })
 
 app.put('/user/:id', (req, res) => {
   const id =req.params
