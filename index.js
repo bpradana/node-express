@@ -3,7 +3,11 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-  res.send('Home')
+  const kelas = {
+    id: 1,
+    nama: 'NodeJS'
+  }
+  res.json(kelas)
 })
 
 app.get('/about', (req, res) => {
